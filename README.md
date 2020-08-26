@@ -20,6 +20,7 @@ Has base match-3 mechanics and different levels. Game Designer can setup all lev
 * Uses Zenject of inversion of control and dependencies injections
 * Uses SignalBus from Zenject to decouple communication between different classes
 * I wrote a basic State Chart Machine to switch between global states (Boot -> LevelMap -> GameBoard)
+* Same State Chart is used to flow through match-3 states with a State pattern (PlyaerTurn -> Swap -> MatchesDestuction -> etc)
 * I wrote a simple Pooling class for optimizing board gems usage
 * Scripts/Core folder holds all core funtionality (Main state machine, Main Context installer)
 * Scripts/Features folder holds feature related logic
