@@ -1,11 +1,11 @@
+using Features.Models;
+using Features.Signals;
 using Features.Views;
-using Models;
-using Signals;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Presenters
+namespace Features.Presenters
 {
     /// <summary>
     /// Main presenter of level map state

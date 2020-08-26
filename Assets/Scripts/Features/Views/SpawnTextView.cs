@@ -2,7 +2,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace Features.View
+namespace Features.Views
 {
     public class SpawnTextView: MonoBehaviour
     {

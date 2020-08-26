@@ -1,4 +1,4 @@
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class RevertSwapInProgressState : BoardBaseState
     {

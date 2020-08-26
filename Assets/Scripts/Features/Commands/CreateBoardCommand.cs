@@ -1,15 +1,15 @@
 using Core.Config;
-using Data;
 using Features.Config;
+using Features.Data;
+using Features.Models;
+using Features.Signals;
 using JetBrains.Annotations;
-using Models;
-using Signals;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 
-namespace Commands
+namespace Features.Commands
 {
     /// <summary>
     /// Initial command for Board State responsible for creating board and resetting models

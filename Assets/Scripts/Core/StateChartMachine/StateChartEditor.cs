@@ -1,6 +1,6 @@
-using StateChart.BaseStates;
+using Core.StateChartMachine.BaseStates;
 
-namespace StateChart
+namespace Core.StateChartMachine
 {
     public class StateChartEditor
     {

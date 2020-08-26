@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using Core.Config;
-using Data;
-using Data.Components;
-using Features.Pieces.View;
-using Models;
-using Signals;
+using Core.Utils;
+using Features.Data;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
+using Features.Views;
 using Unity.Entities;
 using UnityEngine;
-using Utils;
-using Views;
 using Zenject;
 
-namespace Presenters
+namespace Features.Presenters
 {
     /// <summary>
     /// Main presenter for the board responsible for managing gem views

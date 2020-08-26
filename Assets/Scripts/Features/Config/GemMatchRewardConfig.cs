@@ -1,5 +1,4 @@
 using System;
-using Data;
 
 namespace Features.Config
 {

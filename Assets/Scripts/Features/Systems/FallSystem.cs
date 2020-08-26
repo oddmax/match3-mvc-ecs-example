@@ -1,14 +1,14 @@
-using Data;
-using Data.Components;
-using DefaultNamespace.States;
-using Models;
-using Signals;
+using Features.BoardStateChart;
+using Features.Data;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using Zenject;
 
-namespace Systems
+namespace Features.Systems
 {
     /// <summary>
     /// System responsible for moving falling gems and updating their BoardPositionComponent to new ones

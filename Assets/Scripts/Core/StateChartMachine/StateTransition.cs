@@ -1,6 +1,6 @@
 using System;
 
-namespace StateChart
+namespace Core.StateChartMachine
 {
     public class StateTransition
     {

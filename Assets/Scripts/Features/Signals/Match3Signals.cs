@@ -1,9 +1,8 @@
-using StateChart;
+using Core.StateChartMachine;
 using Unity.Entities;
 using Unity.Mathematics;
-using UnityEngine;
 
-namespace Signals
+namespace Features.Signals
 {
     public class Match3Signals
     {

@@ -1,10 +1,10 @@
-using Data.Components;
-using Models;
-using Signals;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
 using Unity.Entities;
 using Zenject;
 
-namespace Systems
+namespace Features.Systems
 {
     /// <summary>
     /// System responsible for destroying managed gems

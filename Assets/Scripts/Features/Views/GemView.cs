@@ -1,15 +1,13 @@
-using System;
 using Core.Config;
-using Data;
-using Data.Components;
 using DG.Tweening;
+using Features.Data.Components;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using UnityEngine;
 using Zenject;
 
-namespace Views
+namespace Features.Views
 {
     public delegate void OnTouchDown(Entity entity);  
     public delegate void OnTouchUp(Entity entity);  

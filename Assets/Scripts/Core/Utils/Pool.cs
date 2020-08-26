@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-namespace Utils
+namespace Core.Utils
 {
     /// <summary>
     /// Very simple basic pool for more efficient GC

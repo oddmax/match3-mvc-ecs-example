@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Data.Components;
+using Features.Data.Components;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 using Random = Unity.Mathematics.Random;
 
-namespace Data
+namespace Features.Data
 {
     /// <summary>
     /// Helper class to encapsulate creation of entities

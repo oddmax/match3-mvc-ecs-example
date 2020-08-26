@@ -1,13 +1,10 @@
-using Data;
-using Data.Components;
-using Models;
-using StateChart;
+using Features.Data.Components;
+using Features.Models;
 using Unity.Entities;
 using Unity.Mathematics;
-using Utils;
 using Zenject;
 
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class FallingState : BoardBaseState
     {
@@ -15,16 +12,7 @@ namespace DefaultNamespace.States.BoardStates
         private EntityManager entityManager;
         
         [Inject] 
-        private CoroutineProvider coroutineProvider; 
-        
-        [Inject] 
-        private SignalBus signalBus;
-        
-        [Inject] 
         private BoardModel boardModel;
-        
-        [Inject] 
-        private GameStateModel gameStateModel;
         
         public override void OnEnter()
         {

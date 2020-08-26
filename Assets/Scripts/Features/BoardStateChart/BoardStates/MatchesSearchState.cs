@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using Data;
-using Data.Components;
+using Core.Utils;
 using Features.Config;
-using Models;
-using Signals;
+using Features.Data;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
 using Unity.Entities;
 using UnityEngine;
-using Utils;
 using Zenject;
 
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class MatchesSearchState : BoardBaseState
     {  
         [Inject] 
         private BoardModel boardModel;
-        
-        [Inject] 
-        private GameStateModel gameStateModel;
-	
+
         [Inject] 
         private PlayerScoreModel playerScoreModel;
         
@@ -30,11 +27,8 @@ namespace DefaultNamespace.States.BoardStates
         private EntityManager entityManager;
         
         [Inject] 
-        private CoroutineProvider coroutineProvider; 
-        
-        [Inject] 
-        private SignalBus signalBus;
-        
+        private CoroutineProvider coroutineProvider;
+
         public override void OnEnter()
         {
             var isPrevStateSwap = gameStateModel.State == Match3State.SwapInProgress;

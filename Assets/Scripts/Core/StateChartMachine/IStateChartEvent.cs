@@ -1,4 +1,4 @@
-namespace StateChart
+namespace Core.StateChartMachine
 {
     public interface IStateChartEvent
     {

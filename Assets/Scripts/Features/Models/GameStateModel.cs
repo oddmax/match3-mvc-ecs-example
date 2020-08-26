@@ -1,11 +1,11 @@
-using Data;
 using Features.Config;
+using Features.Data;
+using Features.Signals;
 using JetBrains.Annotations;
-using Signals;
 using UnityEngine;
 using Zenject;
 
-namespace Models
+namespace Features.Models
 {
     /// <summary>
     /// Main game model, holds current board game state and current level 

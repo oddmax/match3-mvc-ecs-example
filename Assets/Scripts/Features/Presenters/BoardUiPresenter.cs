@@ -1,12 +1,12 @@
 using DG.Tweening;
-using Models;
-using Signals;
+using Features.Models;
+using Features.Signals;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Presenters
+namespace Features.Presenters
 {
     /// <summary>
     /// Main ui in board states responsible for updating score and turns 

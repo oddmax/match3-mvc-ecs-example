@@ -1,5 +1,5 @@
 using System;
-using Data;
+using Features.Data;
 using UnityEngine;
 
 namespace Features.Config

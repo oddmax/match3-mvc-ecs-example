@@ -1,9 +1,10 @@
 using System;
-using Signals;
-using StateChart;
+using Core.GameStates.States;
+using Core.StateChartMachine;
+using Features.Signals;
 using Zenject;
 
-namespace DefaultNamespace.States
+namespace Core.GameStates
 {
     public class GameStateEvents
     {
@@ -23,11 +24,11 @@ namespace DefaultNamespace.States
         [Inject] 
         private SignalBus signalBus;
 
-        StateChart.StateChart stateChart;
+        StateChart stateChart;
         
         public void Initialize()
         {
-            stateChart = new StateChart.StateChart();
+            stateChart = new StateChart();
             SetupStateChart(stateChart);
             stateChart.Start();
             
@@ -45,7 +46,7 @@ namespace DefaultNamespace.States
             stateChart.Trigger(GameStateEvents.StartLevelEvent);
         }
 
-        private void SetupStateChart(StateChart.StateChart chart)
+        private void SetupStateChart(StateChart chart)
         {
             var bootState = new StateVertex(diContainer.Instantiate<BootState>());
             var mapState = new StateVertex(diContainer.Instantiate<MapState>());

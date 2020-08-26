@@ -1,8 +1,7 @@
-using Systems;
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace Data.Components
+namespace Features.Data.Components
 {
     public struct SwappingComponent : IComponentData
     {

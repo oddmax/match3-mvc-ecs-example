@@ -1,16 +1,15 @@
-using System;
 using System.Collections.Generic;
-using Data;
-using Data.Components;
-using Models;
-using Signals;
+using Features.Data;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
+using Features.Views;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
-using Views;
 using Zenject;
 
-namespace Presenters
+namespace Features.Presenters
 {
     /// <summary>
     /// Manages player input on the board and triggers swap via signal

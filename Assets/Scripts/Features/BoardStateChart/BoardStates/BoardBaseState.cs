@@ -1,10 +1,10 @@
-using Data;
-using Models;
-using StateChart;
+using Core.StateChartMachine;
+using Features.Data;
+using Features.Models;
 using UnityEngine;
 using Zenject;
 
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class BoardBaseState : IState
     {

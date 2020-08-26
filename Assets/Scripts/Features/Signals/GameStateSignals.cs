@@ -1,4 +1,4 @@
-namespace Signals
+namespace Features.Signals
 {
     public class ExitToMapSignal {}
     public class ChangeLevelSignal

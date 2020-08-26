@@ -1,5 +1,5 @@
-using Data;
 using Features.Config;
+using Features.Data;
 using UnityEngine;
 
 namespace Core.Config

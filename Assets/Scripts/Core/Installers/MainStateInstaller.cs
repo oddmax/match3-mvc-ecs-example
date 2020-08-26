@@ -1,36 +1,36 @@
-using Systems;
-using Commands;
-using DefaultNamespace.States;
-using Features.Commands;
-using Models;
-using Signals;
-using Utils;
+using Core.GameStates;
+using Core.Utils;
+using Features.Models;
+using Features.Signals;
 using Zenject;
 
-/// <summary>
-/// Main installer with global game dependencies
-/// </summary>
-public class MainStateInstaller : MonoInstaller
+namespace Core.Installers
 {
-	public override void InstallBindings()
+	/// <summary>
+	/// Main installer with global game dependencies
+	/// </summary>
+	public class MainStateInstaller : MonoInstaller
 	{
-		SignalBusInstaller.Install(Container);
+		public override void InstallBindings()
+		{
+			SignalBusInstaller.Install(Container);
 		
-		//Signals
-		Container.DeclareSignal<LevelChangedSignal>();
-		Container.DeclareSignal<ChangeLevelSignal>();
-		Container.DeclareSignal<ExitToMapSignal>();
-		Container.DeclareSignal<Match3Signals.PlayerScoreChangedSignal>();
-		Container.DeclareSignal<Match3Signals.TurnAmountChangedSignal>();
-		Container.DeclareSignal<Match3Signals.CreateBoardSignal>();
-		Container.DeclareSignal<Match3Signals.OutOfTurnsSignal>();
+			//Signals
+			Container.DeclareSignal<LevelChangedSignal>();
+			Container.DeclareSignal<ChangeLevelSignal>();
+			Container.DeclareSignal<ExitToMapSignal>();
+			Container.DeclareSignal<Match3Signals.PlayerScoreChangedSignal>();
+			Container.DeclareSignal<Match3Signals.TurnAmountChangedSignal>();
+			Container.DeclareSignal<Match3Signals.CreateBoardSignal>();
+			Container.DeclareSignal<Match3Signals.OutOfTurnsSignal>();
 
-		//Models
-		Container.BindInterfacesAndSelfTo<PlayerScoreModel>().AsSingle();
-		Container.BindInterfacesAndSelfTo<GameStateModel>().AsSingle();
+			//Models
+			Container.BindInterfacesAndSelfTo<PlayerScoreModel>().AsSingle();
+			Container.BindInterfacesAndSelfTo<GameStateModel>().AsSingle();
 
-		//Utilities and others
-		Container.BindInterfacesAndSelfTo<GameStateChart>().AsSingle();
-		Container.Bind<CoroutineProvider>().FromNewComponentOnNewGameObject().AsSingle();
+			//Utilities and others
+			Container.BindInterfacesAndSelfTo<GameStateChart>().AsSingle();
+			Container.Bind<CoroutineProvider>().FromNewComponentOnNewGameObject().AsSingle();
+		}
 	}
 }

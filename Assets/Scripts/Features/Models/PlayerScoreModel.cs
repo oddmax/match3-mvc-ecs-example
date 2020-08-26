@@ -1,8 +1,8 @@
+using Features.Signals;
 using JetBrains.Annotations;
-using Signals;
 using Zenject;
 
-namespace Models
+namespace Features.Models
 {
     /// <summary>
     /// Model for the player score and amount of remaining turns

@@ -1,10 +1,10 @@
 using System.Collections.Generic;
-using Data.Components;
+using Features.Data.Components;
 using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Data
+namespace Features.Data
 {
     /// <summary>
     /// Found match information

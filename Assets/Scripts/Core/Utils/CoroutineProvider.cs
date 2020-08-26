@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Utils
+namespace Core.Utils
 {
     public class CoroutineProvider : MonoBehaviour
     {

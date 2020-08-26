@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace Data.Components
+namespace Features.Data.Components
 {
     public struct IsFallingComponent : IComponentData
     {

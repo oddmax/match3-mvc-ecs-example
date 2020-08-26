@@ -1,9 +1,7 @@
-using Systems;
-using Commands;
-using DefaultNamespace.States;
 using Features.Commands;
-using Models;
-using Signals;
+using Features.Models;
+using Features.Signals;
+using Features.Systems;
 using Unity.Entities;
 using Zenject;
 
@@ -35,7 +33,7 @@ namespace Features.Installers
                 .ToMethod<StartSwapCommand>(x => x.Execute).FromResolve();
             
             Container.BindInterfacesAndSelfTo<BoardModel>().AsSingle();
-            Container.BindInterfacesAndSelfTo<BoardStateChart>().AsSingle();
+            Container.BindInterfacesAndSelfTo<BoardStateChart.BoardStateChart>().AsSingle();
             
             DefaultWorldInitialization.Initialize("Match3World", false);
             var entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;

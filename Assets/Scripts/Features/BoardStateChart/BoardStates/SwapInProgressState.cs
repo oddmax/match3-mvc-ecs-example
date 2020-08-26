@@ -1,6 +1,4 @@
-using StateChart;
-
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class SwapInProgressState : BoardBaseState
     {

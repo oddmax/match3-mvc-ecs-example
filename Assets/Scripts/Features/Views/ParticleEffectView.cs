@@ -1,8 +1,6 @@
-using Data;
-using Features.Config;
 using UnityEngine;
 
-namespace Features.Pieces.View
+namespace Features.Views
 {
     public class ParticleEffectView : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace Data
+namespace Features.Data
 {
     public enum Match3State
     {

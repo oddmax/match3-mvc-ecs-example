@@ -1,15 +1,15 @@
 using System.Collections;
 using Core.Config;
-using Signals;
-using StateChart;
+using Core.StateChartMachine;
+using Core.Utils;
+using Features.Signals;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
-using Utils;
 using Zenject;
 
-namespace DefaultNamespace.States
+namespace Core.GameStates.States
 {
     public class BoardState : IState
     {

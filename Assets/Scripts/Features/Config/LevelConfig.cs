@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Data;
+using Features.Data;
 using UnityEngine;
 
 namespace Features.Config

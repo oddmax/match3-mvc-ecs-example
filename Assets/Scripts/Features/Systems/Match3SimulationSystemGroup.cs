@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Transforms;
 
-namespace Systems
+namespace Features.Systems
 {
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     [UpdateBefore(typeof(TransformSystemGroup))]

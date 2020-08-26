@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Data;
-using Models;
+using Core.Utils;
+using Features.Data;
+using Features.Models;
 using Unity.Entities;
-using Utils;
 using Zenject;
 
-namespace Systems
+namespace Features.Systems
 {
     /// <summary>
     /// Unfortunately currently DOTS doesn't support injection into systems so this is workaround to have injections inside of the systems

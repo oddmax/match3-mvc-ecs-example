@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using StateChart.BaseStates;
+using Core.StateChartMachine.BaseStates;
 
-namespace StateChart
+namespace Core.StateChartMachine
 {
     internal class StateEvents
     {

@@ -1,14 +1,11 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Data;
-using Data.Components;
 using Features.Config;
+using Features.Data;
 using Unity.Entities;
 using Unity.Mathematics;
-using UnityEngine;
 
-namespace Models
+namespace Features.Models
 {
     /// <summary>
     /// Main board model, which keeps a map which gem is on which position in the matrix and provides handy operation with it

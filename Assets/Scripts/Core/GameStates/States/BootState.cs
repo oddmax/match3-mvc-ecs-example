@@ -1,9 +1,9 @@
-using StateChart;
+using Core.StateChartMachine;
+using Core.Utils;
 using UnityEngine;
-using Utils;
 using Zenject;
 
-namespace DefaultNamespace.States
+namespace Core.GameStates.States
 {
     public class BootState : IState
     {

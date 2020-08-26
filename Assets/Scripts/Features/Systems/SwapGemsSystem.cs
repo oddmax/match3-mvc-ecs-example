@@ -1,15 +1,14 @@
-using Data;
-using Data.Components;
-using DefaultNamespace.States;
-using Models;
-using Signals;
+using Features.BoardStateChart;
+using Features.Data;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine;
 using Zenject;
 
-namespace Systems
+namespace Features.Systems
 {
     /// <summary>
     /// System responsible for swapping to gems which have SwapComponents

@@ -1,7 +1,6 @@
-using Signals;
-using StateChart;
+using Features.Signals;
 
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class GameOverState : BoardBaseState
     {
@@ -9,10 +8,6 @@ namespace DefaultNamespace.States.BoardStates
         {
             base.OnEnter();
             signalBus.Fire<Match3Signals.OutOfTurnsSignal>();
-        }
-
-        public void OnExit()
-        {
         }
     }
 }

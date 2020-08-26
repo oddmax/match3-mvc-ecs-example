@@ -1,8 +1,7 @@
-using Data;
-using Data.Components;
-using DefaultNamespace.States;
-using Models;
-using Signals;
+using Features.BoardStateChart;
+using Features.Data.Components;
+using Features.Models;
+using Features.Signals;
 using Unity.Entities;
 using UnityEngine;
 using Zenject;

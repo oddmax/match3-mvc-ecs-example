@@ -1,8 +1,8 @@
-using Models;
-using Signals;
+using Features.Models;
+using Features.Signals;
 using Zenject;
 
-namespace DefaultNamespace.States.BoardStates
+namespace Features.BoardStateChart.BoardStates
 {
     public class PlayerTurnState : BoardBaseState
     {

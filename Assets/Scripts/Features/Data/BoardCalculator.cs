@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Data
+namespace Features.Data
 {
     /// <summary>
     /// Basic math operations for the board logic

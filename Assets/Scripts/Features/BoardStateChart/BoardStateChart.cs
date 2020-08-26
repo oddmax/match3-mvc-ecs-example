@@ -1,11 +1,11 @@
 using System;
-using Data;
-using DefaultNamespace.States.BoardStates;
-using Signals;
-using StateChart;
+using Core.StateChartMachine;
+using Features.BoardStateChart.BoardStates;
+using Features.Data;
+using Features.Signals;
 using Zenject;
 
-namespace DefaultNamespace.States
+namespace Features.BoardStateChart
 {
     public class BoardStateEvents
     {
@@ -27,11 +27,11 @@ namespace DefaultNamespace.States
         [Inject] 
         private SignalBus signalBus;
 
-        StateChart.StateChart stateChart;
+        StateChart stateChart;
         
         public void Initialize()
         {
-            stateChart = new StateChart.StateChart();
+            stateChart = new StateChart();
             SetupStateChart(stateChart);
             stateChart.Start();
             
@@ -43,7 +43,7 @@ namespace DefaultNamespace.States
             stateChart.Trigger(signal.stateChartEvent);
         }
         
-        private void SetupStateChart(StateChart.StateChart chart)
+        private void SetupStateChart(StateChart chart)
         {
             var playerTurnState = CreateState<PlayerTurnState>(Match3State.PlayerTurn);
             var swapInProgressState = CreateState<SwapInProgressState>(Match3State.SwapInProgress);

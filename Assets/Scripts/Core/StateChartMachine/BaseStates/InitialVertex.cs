@@ -1,4 +1,4 @@
-namespace StateChart.BaseStates
+namespace Core.StateChartMachine.BaseStates
 {
     public class InitialVertex : StateVertex
     {

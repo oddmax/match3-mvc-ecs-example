@@ -1,14 +1,14 @@
 using System.Collections;
 using Core.Config;
-using StateChart;
+using Core.StateChartMachine;
+using Core.Utils;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
-using Utils;
 using Zenject;
 
-namespace DefaultNamespace.States
+namespace Core.GameStates.States
 {
     public class MapState : IState
     {
