@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b421881fa9ea5436ebc86fddf49651be, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  levels:
+  - {fileID: 11400000, guid: cae3090b4cee1487985d7b312d5cea8f, type: 2}
+  - {fileID: 11400000, guid: 1998b9a689baa4989b43b078a56288e9, type: 2}
+  - {fileID: 11400000, guid: 9dc60e0d53e704f6a91d05ac21bcf58a, type: 2}
+  - {fileID: 11400000, guid: 96980a30db0d1402d8ab41a11f04680e, type: 2}
+  - {fileID: 11400000, guid: 4826558e685764bc7b1430d52d7ce1fb, type: 2}
+  - {fileID: 11400000, guid: bb5fcdbb44ccb4f2b8a92b12745e0464, type: 2}
+  playerConfig: {fileID: 11400000, guid: 56d705234755441cfb4a6189ab76384a, type: 2}
+  matchRewards:
+  - MatchSize: 3
+    Score: 10
+  - MatchSize: 4
+    Score: 15
+  - MatchSize: 5
+    Score: 30
+  - MatchSize: 6
+    Score: 40
+  - MatchSize: 7
+    Score: 50
+  - MatchSize: 8
+    Score: 100
+  - MatchSize: 9
+    Score: 150
+  - MatchSize: 10
+    Score: 200
