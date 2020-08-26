@@ -1,9 +1,9 @@
 # Match3 example game
 
-#Launch
+# How to test
 Open MainScene.scene and press 'Play'. Game was optimized for mobile portait mode so it will look best with a landscape aspect ratio.
 
-#Description
+# Description
 I layed down a main architecture for the match-3 game which can be easily extended with any extra functionality. 
 I decided to use hybrid architecture - as foundation I use MVC-like architecture based on Zenject with Command pattern, but for match3 mechanics I used Unity DOTS Entity Component System as it works very well with this kind of logic.
 
