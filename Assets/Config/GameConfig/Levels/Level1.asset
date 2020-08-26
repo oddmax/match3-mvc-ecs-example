@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 5
   Height: 7
-  Turns: 5
+  Turns: 7
   availableColors: 00000000010000000200000003000000
