@@ -1,4 +1,5 @@
 # Match3 example game
+Done in 2 days
 
 # How to test
 Open MainScene.scene and press 'Play'. Game was optimized for mobile portait mode so it will look best with a landscape aspect ratio.
@@ -63,8 +64,3 @@ Has references to Views
 * Base on archetype of entity will execute some data changes to components and can notify about them via signals.
 
 
-# What would I do if I would have more time
-
-* I didn't have time but next step would be to add basic Unit testing for board model logic (calculating matches and all other board related calculations)
-* Currently I use only basic Unity DOTS ECS without jobs and parallel optimization as it takes quite a bit of time to write systems logic which can be executed in parallel
-* State change for main board logic is a bit off, I would have liked to change is to a proper State pattern
