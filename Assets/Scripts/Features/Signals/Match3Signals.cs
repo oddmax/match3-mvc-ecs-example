@@ -22,6 +22,10 @@ namespace Features.Signals
         {
         } 
         
+        public class OnPlayerTurnStart
+        {
+        } 
+        
         public class StateChartSignal
         {
             public readonly IStateChartEvent stateChartEvent;

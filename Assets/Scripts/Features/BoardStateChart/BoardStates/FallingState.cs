@@ -1,5 +1,6 @@
 using Features.Data.Components;
 using Features.Models;
+using Features.Signals;
 using Unity.Entities;
 using Unity.Mathematics;
 using Zenject;
@@ -17,6 +18,9 @@ namespace Features.BoardStateChart.BoardStates
         public override void OnEnter()
         {
             base.OnEnter();
+            
+            signalBus.Fire(new Match3Signals.StartFallSignal());
+            
             for (var x = 0; x < boardModel.BoardWidth; x++)
             {
                 for (var y = 0; y < boardModel.BoardHeight; y++)

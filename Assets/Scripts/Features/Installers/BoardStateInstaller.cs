@@ -19,6 +19,7 @@ namespace Features.Installers
             Container.DeclareSignal<Match3Signals.StartSwapSignal>();
             Container.DeclareSignal<Match3Signals.FindMatchesSignal>();
             Container.DeclareSignal<Match3Signals.StartFallSignal>();
+            Container.DeclareSignal<Match3Signals.OnPlayerTurnStart>();
             Container.DeclareSignal<Match3Signals.GemCreatedSignal>();
             Container.DeclareSignal<Match3Signals.GemDestroyedSignal>();
             Container.DeclareSignal<Match3Signals.StateChartSignal>();

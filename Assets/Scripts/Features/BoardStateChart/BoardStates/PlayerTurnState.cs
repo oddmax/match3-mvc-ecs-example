@@ -13,6 +13,8 @@ namespace Features.BoardStateChart.BoardStates
         {
             base.OnEnter();
             
+            signalBus.Fire(new Match3Signals.OnPlayerTurnStart());
+            
             if (playerScoreModel.Turns <= 0)
                 signalBus.Fire(new Match3Signals.StateChartSignal(BoardStateEvents.NoTurnsLeftEvent));
         }

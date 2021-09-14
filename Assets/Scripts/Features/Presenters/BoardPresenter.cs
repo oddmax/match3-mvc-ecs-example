@@ -55,6 +55,8 @@ namespace Features.Presenters
             signalBus.Subscribe<Match3Signals.GemCreatedSignal>(OnGemCreated);
             signalBus.Subscribe<Match3Signals.GemDestroyedSignal>(OnGemDestroyed);
             signalBus.Subscribe<Match3Signals.OnBoardCreatedSignal>(OnBoardCreated);
+            signalBus.Subscribe<Match3Signals.OnPlayerTurnStart>(OnTurnStarts);
+            signalBus.Subscribe<Match3Signals.StartFallSignal>(OnTurnEnds);
         }
 
         private void OnDisable()
@@ -62,6 +64,8 @@ namespace Features.Presenters
             signalBus.Unsubscribe<Match3Signals.GemCreatedSignal>(OnGemCreated);
             signalBus.Unsubscribe<Match3Signals.GemDestroyedSignal>(OnGemDestroyed);
             signalBus.Unsubscribe<Match3Signals.OnBoardCreatedSignal>(OnBoardCreated);
+            signalBus.Unsubscribe<Match3Signals.OnPlayerTurnStart>(OnTurnStarts);
+            signalBus.Unsubscribe<Match3Signals.StartFallSignal>(OnTurnEnds);
 
             Dispose();
         }
@@ -85,6 +89,26 @@ namespace Features.Presenters
             var scaleY = 11 / BoardCalculator.GetBoardHeightSize();
             boardScale = Mathf.Min(scaleX, scaleY);
             gemsContainer.transform.localScale = new Vector3(boardScale,boardScale,1);
+        }
+        
+        private void OnTurnStarts()
+        {
+            Debug.Log("On Turn Starts");
+            
+            foreach (KeyValuePair<Entity,GemView> keyValuePair in gemViews)
+            {
+                keyValuePair.Value.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            }
+        }
+        
+        private void OnTurnEnds()
+        {
+            Debug.Log("On Turn Ends");
+
+            foreach (KeyValuePair<Entity,GemView> keyValuePair in gemViews)
+            {
+                keyValuePair.Value.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            }
         }
 
         private void OnGemCreated(Match3Signals.GemCreatedSignal signal)
