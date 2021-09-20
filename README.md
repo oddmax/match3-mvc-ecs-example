@@ -46,7 +46,7 @@ Has references to Views
 * Has injected dependencies to Models, SignalBus, and Services.
 
 ## Configs located in Config folder
-* Is a ScriptableObject
+* Is a ScriptableObject assets
 * Gets serialized 
 * Holds static information of the objects which doesn't change such as levels, how much score points for different matches to give, etc
 
