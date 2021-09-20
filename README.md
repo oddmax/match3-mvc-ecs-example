@@ -1,30 +1,31 @@
 # Match3 example game
-Done in 2 days
 
 # How to test
 Open MainScene.scene and press 'Play'. Game was optimized for mobile portait mode so it will look best with a landscape aspect ratio.
 
 # Description
-I layed down a main architecture for the match-3 game which can be easily extended with any extra functionality. 
-I decided to use hybrid architecture - as foundation I use MVC-like architecture based on Zenject with Command pattern, but for match3 mechanics I used Unity DOTS Entity Component System as it works very well with this kind of logic.
+A simple game to demonstraite a clean and robust architecture for the match-3 game which can be easily extended with any extra functionality. 
+Uses a hybrid architecture - as foundation I use MVC-like architecture based on **Zenject** with **Comman**d pattern, but for match3 mechanics I used **Unity DOTS Entity Component System** as it works very well with this kind of logic.
 
-*Built with Unity 2020.1.0b12*
+*Built with Unity 2020.1.13f*
 
 # Funcionality
 
-Has base match-3 mechanics and different levels. Game Designer can setup all levels and setting as scriptable objects.
+Has base match-3 mechanics and different levels. All levels and settings could be setup as Scriptable Objects.
 
-# Main structure
+# General structure
 
-* Uses very simple MVC/MVP architecture and Command pattern for main application logic
-* Uses Unity DOTS Entity Component System for match-3 gameplay mechanics.
-* Uses Zenject of inversion of control and dependencies injections
-* Uses SignalBus from Zenject to decouple communication between different classes
-* I wrote a basic State Chart Machine to switch between global states (Boot -> LevelMap -> GameBoard)
+* Uses very simple **MVC/MVP architecture** and **Command** pattern for main application logic
+* Uses **Unity DOTS Entity Component System** for match-3 gameplay mechanics.
+* Uses **Zenject** of inversion of control and dependencies injections
+* Uses **SignalBus** from Zenject to decouple communication between different classes
+* Implemented a custom State Machine to switch between global states (Boot -> LevelMap -> GameBoard) with a support of more complex State Charts
 * Same State Chart is used to flow through match-3 states with a State pattern (PlyaerTurn -> Swap -> MatchesDestuction -> etc)
-* I wrote a simple Pooling class for optimizing board gems usage
+* Implemented a simple Pooling class for optimizing board gems usage
 * Scripts/Core folder holds all core funtionality (Main state machine, Main Context installer)
 * Scripts/Features folder holds feature related logic
+
+# Main classes and their descriptions
 
 ## Models 
 * Is Plain C# class
