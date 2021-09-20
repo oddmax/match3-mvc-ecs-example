@@ -1,12 +1,12 @@
 using System;
 
-namespace Core.StateChartMachine
+namespace Core.StateMachine
 {
     public class StateTransition
     {
         public StateVertex SourceStateVertex;
         public StateVertex TargetStateVertex;
-        public IStateChartEvent TriggerEvent;
+        public IStateMachineEvent TriggerEvent;
         
         public StateTransition(StateVertex source)
         {
@@ -16,15 +16,15 @@ namespace Core.StateChartMachine
         public StateTransition Target(StateVertex target)
         {
             if (TargetStateVertex != null) throw new Exception("Duplicated transition target");
-            TargetStateVertex = (StateVertex)target;
+            TargetStateVertex = target;
             TargetStateVertex.AddIncomingTransition(this);
             return this;
         }
 
 
-        public bool ExecuteTrigger(StateChart stateChart, IStateChartEvent stateChartEvent)
+        public bool ExecuteTrigger(StateChart stateChart, IStateMachineEvent stateMachineEvent)
         {
-            if (TriggerEvent == stateChartEvent)
+            if (TriggerEvent == stateMachineEvent)
             {
                 stateChart.PrepareTransition(TargetStateVertex);
                 return true;
@@ -33,7 +33,7 @@ namespace Core.StateChartMachine
             return false;
         }
 
-        public StateTransition OnEvent(IStateChartEvent trigger)
+        public StateTransition OnEvent(IStateMachineEvent trigger)
         {
             TriggerEvent = trigger;
             return this;

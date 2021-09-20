@@ -1,4 +1,4 @@
-namespace Core.StateChartMachine
+namespace Core.StateMachine
 {
     public interface IState
     {

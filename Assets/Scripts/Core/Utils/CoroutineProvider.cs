@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Core.Utils
 {
+    /// <summary>
+    /// Can be injected via Zenject and allows to use Coroutines in plain C# classes
+    /// </summary>
     public class CoroutineProvider : MonoBehaviour
     {
         public new Coroutine StartCoroutine(IEnumerator routine)

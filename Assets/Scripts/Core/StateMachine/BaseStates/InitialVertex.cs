@@ -1,10 +1,10 @@
-namespace Core.StateChartMachine.BaseStates
+namespace Core.StateMachine.BaseStates
 {
     public class InitialVertex : StateVertex
     {
         public InitialVertex(IState state) : base(state)
         {
-            vertexType = VertexType.Initial;
+            vertexType = BaseStates.VertexType.Initial;
         }
 
         public override StateTransition Transition()

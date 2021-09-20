@@ -1,25 +1,25 @@
 using System.Collections.Generic;
-using Core.StateChartMachine.BaseStates;
+using Core.StateMachine.BaseStates;
 
-namespace Core.StateChartMachine
+namespace Core.StateMachine
 {
     internal class StateEvents
     {
-        public static readonly IStateChartEvent StartEvent = new StateChartEvent();
+        public static readonly IStateMachineEvent StartEvent = new StateMachineEvent();
     }
     
     /// <summary>
-    /// Basic state chart machine to switch between states based on events
+    /// Basic state chart machine to switch between states based on IStateMachineEvent 
     /// </summary>
     public class StateChart
     {
         private StateVertex currentStateVertex;
         private List<StateVertex> Vertices = new List<StateVertex>();
-        private InitialVertex initialVertex;
+        private InitialVertex startVertex;
 
         public void Start()
         {
-            initialVertex.ExecuteTrigger(this, StateEvents.StartEvent);
+            startVertex.ExecuteTrigger(this, StateEvents.StartEvent);
         }
 
         public void Stop()
@@ -27,7 +27,7 @@ namespace Core.StateChartMachine
             currentStateVertex?.OnExit();
         }
         
-        public void Trigger(IStateChartEvent trigger)
+        public void Trigger(IStateMachineEvent trigger)
         {
             currentStateVertex?.ExecuteTrigger(this, trigger);
         }
@@ -45,14 +45,14 @@ namespace Core.StateChartMachine
             currentStateVertex?.OnEnter();
         }
 
-        public void RegisterVertex(StateVertex vertex)
+        public void AddVertex(StateVertex vertex)
         {
             Vertices.Add(vertex);
         }
 
         public void SetInitialVertex(InitialVertex initialVertex)
         {
-            this.initialVertex = initialVertex;
+            this.startVertex = initialVertex;
             Vertices.Add(initialVertex);
         }
     }

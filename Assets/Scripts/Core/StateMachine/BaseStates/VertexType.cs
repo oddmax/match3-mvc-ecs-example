@@ -1,4 +1,4 @@
-namespace Core.StateChartMachine.BaseStates
+namespace Core.StateMachine.BaseStates
 {
     public enum VertexType
     {

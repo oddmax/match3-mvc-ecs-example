@@ -5,6 +5,9 @@ using Zenject;
 
 namespace Core.Installers
 {
+    /// <summary>
+    /// Installer with SO dependencies (mostly Game Design configs)
+    /// </summary>
     [CreateAssetMenu(fileName = "SOInstaller", menuName = "Installers/SOInstaller")]
     public class ScriptableObjectInstaller : ScriptableObjectInstaller<ScriptableObjectInstaller>
     {

@@ -1,10 +1,15 @@
-using Core.StateChartMachine;
+using Core.StateMachine;
 using Core.Utils;
+using JetBrains.Annotations;
 using UnityEngine;
 using Zenject;
 
 namespace Core.GameStates.States
 {
+    /// <summary>
+    /// Boot state where all initialization and loading should happen
+    /// </summary>
+    [UsedImplicitly]
     public class BootState : IState
     {
         [Inject]

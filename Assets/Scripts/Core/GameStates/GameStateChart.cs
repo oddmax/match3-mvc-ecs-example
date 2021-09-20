@@ -1,21 +1,24 @@
 using System;
 using Core.GameStates.States;
-using Core.StateChartMachine;
+using Core.StateMachine;
 using Features.Signals;
+using JetBrains.Annotations;
 using Zenject;
 
 namespace Core.GameStates
 {
+    [UsedImplicitly]
     public class GameStateEvents
     {
-        public static readonly IStateChartEvent StartLevelEvent = new StateChartEvent();
-        public static readonly IStateChartEvent ExitBoardEvent = new StateChartEvent();
-        public static readonly IStateChartEvent DisposedEvent = new StateChartEvent();
+        public static readonly IStateMachineEvent StartLevelEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent ExitBoardEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent DisposedEvent = new StateMachineEvent();
     }
     
     /// <summary>
     /// Main game state chart with basic states - Boot, LevelMap and Board
     /// </summary>
+    [UsedImplicitly]
     public class GameStateChart : IInitializable, IDisposable
     {
         [Inject] 
@@ -49,10 +52,10 @@ namespace Core.GameStates
         private void SetupStateChart(StateChart chart)
         {
             var bootState = new StateVertex(diContainer.Instantiate<BootState>());
-            var mapState = new StateVertex(diContainer.Instantiate<MapState>());
+            var mapState = new StateVertex(diContainer.Instantiate<LevelSelectionState>());
             var boardState = new StateVertex(diContainer.Instantiate<BoardState>());
             
-            var editor = new StateChartEditor(chart);
+            var editor = new StateMachineEditor(chart);
             editor.Initial().Transition().Target(mapState);
             bootState.Transition().Target(mapState);
             mapState.Event(GameStateEvents.StartLevelEvent).Target(boardState);

@@ -1,8 +1,9 @@
 using System.Collections;
 using Core.Config;
-using Core.StateChartMachine;
+using Core.StateMachine;
 using Core.Utils;
 using Features.Signals;
+using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -11,6 +12,10 @@ using Zenject;
 
 namespace Core.GameStates.States
 {
+    /// <summary>
+    /// Main gameplay state with a game board and moving pieces
+    /// </summary>
+    [UsedImplicitly]
     public class BoardState : IState
     {
         [Inject]

@@ -1,4 +1,4 @@
-using Core.StateChartMachine;
+using Core.StateMachine;
 using Unity.Entities;
 using Unity.Mathematics;
 
@@ -28,11 +28,11 @@ namespace Features.Signals
         
         public class StateChartSignal
         {
-            public readonly IStateChartEvent stateChartEvent;
+            public readonly IStateMachineEvent _stateMachineEvent;
 
-            public StateChartSignal(IStateChartEvent stateChartEvent)
+            public StateChartSignal(IStateMachineEvent stateMachineEvent)
             {
-                this.stateChartEvent = stateChartEvent;
+                this._stateMachineEvent = stateMachineEvent;
             }
         }
         

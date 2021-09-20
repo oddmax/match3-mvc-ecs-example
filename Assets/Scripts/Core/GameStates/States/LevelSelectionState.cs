@@ -1,7 +1,8 @@
 using System.Collections;
 using Core.Config;
-using Core.StateChartMachine;
+using Core.StateMachine;
 using Core.Utils;
+using JetBrains.Annotations;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
@@ -10,7 +11,11 @@ using Zenject;
 
 namespace Core.GameStates.States
 {
-    public class MapState : IState
+    /// <summary>
+    /// State to choose between levels
+    /// </summary>
+    [UsedImplicitly]
+    public class LevelSelectionState : IState
     {
         [Inject]
         private CoroutineProvider coroutineProvider;

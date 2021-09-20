@@ -6,7 +6,7 @@ using Zenject;
 namespace Core.Utils
 {
     /// <summary>
-    /// Very simple basic pool for more efficient GC
+    /// Very simple basic pool for more efficient GC and memory management
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class Pool<T> where T : Component

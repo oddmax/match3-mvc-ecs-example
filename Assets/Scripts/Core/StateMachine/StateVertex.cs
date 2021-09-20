@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Core.StateChartMachine.BaseStates;
+using Core.StateMachine.BaseStates;
 
-namespace Core.StateChartMachine
+namespace Core.StateMachine
 {
     public class StateVertex
     {
@@ -29,7 +29,7 @@ namespace Core.StateChartMachine
             state.OnExit();
         }
         
-        public StateTransition Event(IStateChartEvent trigger)
+        public StateTransition Event(IStateMachineEvent trigger)
         {
             return Transition().OnEvent(trigger);
         }
@@ -46,13 +46,13 @@ namespace Core.StateChartMachine
             return t;
         }
         
-        public virtual bool ExecuteTrigger(StateChart stateChart, IStateChartEvent stateChartEvent)
+        public virtual bool ExecuteTrigger(StateChart stateChart, IStateMachineEvent stateMachineEvent)
         {
             if (Transitions == null) return false;
 
             foreach (var transition in Transitions)
             {
-                if (transition.ExecuteTrigger(stateChart, stateChartEvent))
+                if (transition.ExecuteTrigger(stateChart, stateMachineEvent))
                 {
                     return true;
                 }

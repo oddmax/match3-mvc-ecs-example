@@ -1,12 +1,12 @@
-using Core.StateChartMachine.BaseStates;
+using Core.StateMachine.BaseStates;
 
-namespace Core.StateChartMachine
+namespace Core.StateMachine
 {
-    public class StateChartEditor
+    public class StateMachineEditor
     {
         private StateChart stateChart;
 
-        public StateChartEditor(StateChart stateChart)
+        public StateMachineEditor(StateChart stateChart)
         {
             this.stateChart = stateChart;
         }
@@ -27,7 +27,7 @@ namespace Core.StateChartMachine
         
         private void AddVertex(StateVertex vertex)
         {
-            stateChart.RegisterVertex(vertex);
+            stateChart.AddVertex(vertex);
         }
         
         public void Destroy()

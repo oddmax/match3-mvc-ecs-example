@@ -1,24 +1,30 @@
 using System;
-using Core.StateChartMachine;
+using Core.StateMachine;
 using Features.BoardStateChart.BoardStates;
 using Features.Data;
 using Features.Signals;
+using JetBrains.Annotations;
 using Zenject;
 
 namespace Features.BoardStateChart
 {
+    [UsedImplicitly]
     public class BoardStateEvents
     {
-        public static readonly IStateChartEvent StartSwapEvent = new StateChartEvent();
-        public static readonly IStateChartEvent SwapCompleteEvent = new StateChartEvent();
-        public static readonly IStateChartEvent RevertSwapEvent = new StateChartEvent();
-        public static readonly IStateChartEvent NoMatchesFoundEvent = new StateChartEvent();
-        public static readonly IStateChartEvent MatchesFoundEvent = new StateChartEvent();
-        public static readonly IStateChartEvent NoTurnsLeftEvent = new StateChartEvent();
-        public static readonly IStateChartEvent FallingCompleteEvent = new StateChartEvent();
-        public static readonly IStateChartEvent ExitBoardEvent = new StateChartEvent();
+        public static readonly IStateMachineEvent StartSwapEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent SwapCompleteEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent RevertSwapEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent NoMatchesFoundEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent MatchesFoundEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent NoTurnsLeftEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent FallingCompleteEvent = new StateMachineEvent();
+        public static readonly IStateMachineEvent ExitBoardEvent = new StateMachineEvent();
     }
     
+    /// <summary>
+    /// State Chart Machine to switch between different states on the board
+    /// </summary>
+    [UsedImplicitly]
     public class BoardStateChart : IInitializable, IDisposable
     {
         [Inject] 
@@ -40,7 +46,7 @@ namespace Features.BoardStateChart
 
         private void OnStateChartSignal(Match3Signals.StateChartSignal signal)
         {
-            stateChart.Trigger(signal.stateChartEvent);
+            stateChart.Trigger(signal._stateMachineEvent);
         }
         
         private void SetupStateChart(StateChart chart)
@@ -52,7 +58,7 @@ namespace Features.BoardStateChart
             var fallingState = CreateState<FallingState>(Match3State.MatchesFall);
             var gameOverState = CreateState<GameOverState>(Match3State.GameOver);
             
-            var editor = new StateChartEditor(chart);
+            var editor = new StateMachineEditor(chart);
             editor.Initial().Transition().Target(playerTurnState);
             
             playerTurnState.Event(BoardStateEvents.StartSwapEvent).Target(swapInProgressState);
