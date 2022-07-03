@@ -45,6 +45,7 @@ Has base match-3 mechanics and different levels. All levels and settings could b
 Has references to Views
 * Listens to changes in Models and updates the Views it is responsible for
 * Has injected dependencies to Models, SignalBus, and Services.
+* Listens to user inputs passed from the views or directly and executes commands
 
 ## Configs located in Config folder
 * Is a ScriptableObject assets
