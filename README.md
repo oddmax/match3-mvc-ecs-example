@@ -32,6 +32,7 @@ Has base match-3 mechanics and different levels. All levels and settings could b
 * Holds application state
 * Injectable into Presenters, Commands and Services (in case of adding backend). Not injectable to other models.
 * Usually doesn't have injected dependencies
+* Serialiazable for both sending to the backend or to be saved on the device
 
 ## Views
 * Is Subclass of MonoBehaviour
