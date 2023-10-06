@@ -14,7 +14,7 @@ namespace Features.Systems
     /// System responsible for swapping to gems which have SwapComponents
     /// </summary>
     [UpdateInGroup(typeof(Match3SimulationSystemGroup))]
-    public class SwapGemsSystem : SystemBase
+    public  partial  class SwapGemsSystem : SystemBase
     {
         private SignalBus signalBus;
         private BoardModel boardModel;

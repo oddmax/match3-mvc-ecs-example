@@ -11,7 +11,7 @@ namespace Features.Systems
     /// </summary>
     [UpdateInGroup(typeof(Match3SimulationSystemGroup))]
     [UpdateBefore(typeof(SwapGemsSystem))]
-    public class DestroySystem : SystemBase
+    public partial class DestroySystem : SystemBase
     {
         private SignalBus signalBus;
         private BoardModel boardModel;

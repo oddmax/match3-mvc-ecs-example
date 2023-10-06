@@ -14,7 +14,7 @@ namespace Features.Systems
     /// System responsible for moving falling gems and updating their BoardPositionComponent to new ones
     /// </summary>
     [UpdateInGroup(typeof(Match3SimulationSystemGroup))]
-    public class FallSystem : SystemBase
+    public  partial  class FallSystem : SystemBase
     {
         private SignalBus signalBus;
         private BoardModel boardModel;

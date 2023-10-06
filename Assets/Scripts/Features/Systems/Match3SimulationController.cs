@@ -58,7 +58,7 @@ namespace Features.Systems
         private static IEnumerator DisposeWorld()
         {
             World.DefaultGameObjectInjectionWorld.QuitUpdate = true;
-            ScriptBehaviourUpdateOrder.UpdatePlayerLoop(null);
+            //ScriptBehaviourUpdateOrder.UpdatePlayerLoop(null);
 
             yield return null;
 

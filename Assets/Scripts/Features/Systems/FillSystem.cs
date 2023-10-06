@@ -14,7 +14,7 @@ namespace Features.Systems
     /// </summary>
     [UpdateInGroup(typeof(Match3SimulationSystemGroup))]
     [UpdateBefore(typeof(FallSystem))]
-    public class FillSystem : SystemBase
+    public  partial  class FillSystem : SystemBase
     {
         private SignalBus signalBus;
         private BoardModel boardModel;
