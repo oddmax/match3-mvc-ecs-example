@@ -7,7 +7,7 @@ Open MainScene.scene and press 'Play'. Game was optimized for mobile portait mod
 A simple game to demonstraite a clean and robust architecture for the match-3 game which can be easily extended with any extra functionality. 
 Uses a hybrid architecture - as foundation I use MVC-like architecture based on **Zenject** with **Command** pattern, but for match3 mechanics I used **Unity DOTS Entity Component System** as it works very well with this kind of logic.
 
-*Built with Unity 2020.1.13f*
+*Built with Unity 6000.1.6f1*
 
 # Funcionality
 
