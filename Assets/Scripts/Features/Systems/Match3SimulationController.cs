@@ -34,20 +34,23 @@ namespace Features.Systems
         
         public void Initialize()
         {
-            var swapSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SwapGemsSystem>();
-            swapSystem.Init(signalBus, boardModel, gameStateModel);
-            
-            var fillSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<FillSystem>();
-            fillSystem.Init(signalBus, boardModel, gameStateModel);
-            
-            var fallSystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<FallSystem>();
-            fallSystem.Init(signalBus, boardModel, gameStateModel);
-            
-            var destroySystem = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<DestroySystem>();
-            destroySystem.Init(signalBus,boardModel, gameStateModel);
-            
-            var simulationGroup = World.DefaultGameObjectInjectionWorld.GetExistingSystem<Match3SimulationSystemGroup>();
-            this.systems = simulationGroup.Systems;
+            var world = World.DefaultGameObjectInjectionWorld;
+
+            // ── create / fetch the systems ────────────────────────────────
+            var swapSystem    = world.GetOrCreateSystemManaged<SwapGemsSystem>();
+            var fillSystem    = world.GetOrCreateSystemManaged<FillSystem>();
+            var fallSystem    = world.GetOrCreateSystemManaged<FallSystem>();
+            var destroySystem = world.GetOrCreateSystemManaged<DestroySystem>();
+
+            // ── pass your external refs exactly as before ─────────────────
+            swapSystem.Init   (signalBus, boardModel, gameStateModel);
+            fillSystem.Init   (signalBus, boardModel, gameStateModel);
+            fallSystem.Init   (signalBus, boardModel, gameStateModel);
+            destroySystem.Init(signalBus, boardModel, gameStateModel);
+
+            // ── grab the custom simulation group and its children ─────────
+            var simulationGroup = world.GetExistingSystemManaged<Match3SimulationSystemGroup>();
+            this.systems        = simulationGroup.ManagedSystems;   // was .Systems
         }
         
         public void Dispose()

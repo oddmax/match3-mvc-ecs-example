@@ -21,7 +21,7 @@ namespace Features.Data
             EntityManager = entityManager;
 
             GemArchetype = entityManager.CreateArchetype(
-                typeof(Translation),
+                typeof(LocalTransform),
                 typeof(BoardPositionComponent),
                 typeof(GemComponent));
             
@@ -32,7 +32,7 @@ namespace Features.Data
         public static Entity CreateGem(GemColor gemColor, float3 originPosition, int2 boardPosition)
         {
             var entity = EntityManager.CreateEntity(GemArchetype);
-            EntityManager.SetComponentData(entity, new Translation {Value = new float3(originPosition.x, originPosition.y, 0)});
+            EntityManager.SetComponentData(entity, new LocalTransform {Position = new float3(originPosition.x, originPosition.y, 0)});
             EntityManager.SetComponentData(entity, new BoardPositionComponent {Position = boardPosition});
             EntityManager.SetComponentData(entity, new GemComponent {Color = gemColor});
 

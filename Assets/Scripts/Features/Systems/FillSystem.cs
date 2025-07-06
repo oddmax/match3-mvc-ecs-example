@@ -58,8 +58,8 @@ namespace Features.Systems
                 if (boardModel.HasEntityAt(new int2(x, y)))
                 {
                     var entity = boardModel.GetEntityAt(x, y);
-                    var translation = EntityManager.GetComponentData<Translation>(entity);
-                    if (math.distancesq(position, translation.Value) < BoardCalculator.GEM_SIZE)
+                    var lt = EntityManager.GetComponentData<LocalTransform>(entity);
+                    if (math.distancesq(position, lt.Position) < BoardCalculator.GEM_SIZE)
                     {
                         return true;
                     }

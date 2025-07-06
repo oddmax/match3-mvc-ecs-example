@@ -27,6 +27,15 @@ namespace Features.Systems
             this.boardModel = boardModel;
         }
         
+        protected override void OnCreate()
+        {
+            // Run while there is *either* a falling piece or one that is still animating
+            RequireAnyForUpdate(
+                GetEntityQuery(ComponentType.ReadOnly<IsFallingComponent>()),
+                GetEntityQuery(ComponentType.ReadOnly<MoveToBoardPositionComponent>())
+            );
+        }
+        
         protected override void OnStopRunning()
         {
             signalBus.Fire(new Match3Signals.StateChartSignal(BoardStateEvents.FallingCompleteEvent));
@@ -37,7 +46,7 @@ namespace Features.Systems
             if(gameStateModel == null || gameStateModel.State != Match3State.MatchesFall) 
                 return;
 
-            var time = Time.DeltaTime;
+            var time = World.Time.DeltaTime;
             Entities.WithAll<IsFallingComponent>().WithNone<DestroyedComponent>().WithStructuralChanges().ForEach(
                 (Entity entity, int entityInQueryIndex, ref BoardPositionComponent boardPositionComponent) =>
                 {
@@ -72,22 +81,22 @@ namespace Features.Systems
             Entities.WithNone<DestroyedComponent>().WithStructuralChanges().ForEach(
                 (Entity entity,
                     int entityInQueryIndex,
-                    ref Translation translation,
+                    ref LocalTransform transform,
                     in BoardPositionComponent boardPositionComponent,
                     in MoveToBoardPositionComponent moveComponent) =>
                 {
                     var targetPosition = BoardCalculator.ConvertBoardPositionToTransformPosition(boardPositionComponent.Position);
                     
-                    var direction = targetPosition - translation.Value;
-                    if (math.distancesq(translation.Value, targetPosition) < 0.01f || translation.Value.y < targetPosition.y)
+                    var direction = targetPosition - transform.Position;
+                    if (math.distancesq(transform.Position, targetPosition) < 0.01f || transform.Position.y < targetPosition.y)
                     {
-                        translation = new Translation {Value = targetPosition};
+                        transform.Position = targetPosition;     
                         EntityManager.RemoveComponent<MoveToBoardPositionComponent>(entity);
                     }
                     else
                     {
                         var velocity = math.normalize(direction) * 10 * time;
-                        translation.Value += velocity;
+                        transform.Position += velocity; 
                     }
                 }).Run();
         }

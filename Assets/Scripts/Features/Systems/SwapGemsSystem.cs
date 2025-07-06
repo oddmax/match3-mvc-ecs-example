@@ -33,6 +33,7 @@ namespace Features.Systems
             base.OnCreate();
 
             query = GetEntityQuery(typeof(SwappingComponent));
+            RequireForUpdate(query);
         }
 
         protected override void OnStopRunning()
@@ -45,30 +46,30 @@ namespace Features.Systems
             if(gameStateModel == null) 
                 return;
             
-            var time = Time.DeltaTime;
+            var time = World.Time.DeltaTime;
             Entities.WithStructuralChanges().ForEach(
                 (Entity entity, 
                 int entityInQueryIndex,
-                ref Translation translation,
+                ref LocalTransform transform,
                 ref BoardPositionComponent boardPositionComponent,
                 in SwappingComponent swapComponent) =>
                 {
                     var startPosition = BoardCalculator.ConvertBoardPositionToTransformPosition(swapComponent.OriginBoardPosition);
                     var targetPosition = BoardCalculator.ConvertBoardPositionToTransformPosition(swapComponent.TargetBoardPosition);
                     
-                    var direction = targetPosition - translation.Value;
+                    var direction = targetPosition - transform.Position;
                   
-                    if (math.distancesq(translation.Value, targetPosition) < 0.01f)
+                    if (math.distancesq(transform.Position, targetPosition) < 0.01f)
                     {
                         boardPositionComponent = new BoardPositionComponent { Position = swapComponent.TargetBoardPosition};
                         boardModel.SetEntityAt(swapComponent.TargetBoardPosition.x, swapComponent.TargetBoardPosition.y, entity);
-                        translation = new Translation {Value = targetPosition};
+                        transform.Position = targetPosition;  
                         EntityManager.RemoveComponent<SwappingComponent>(entity);
                     }
                     else
                     {
                         var velocity = math.normalize(direction) * 7 * time;
-                        translation.Value += velocity;
+                        transform.Position += velocity;
                     }
                 }).Run();
         }

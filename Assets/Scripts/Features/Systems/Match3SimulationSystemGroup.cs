@@ -5,7 +5,7 @@ namespace Features.Systems
 {
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     [UpdateBefore(typeof(TransformSystemGroup))]
-    public class Match3SimulationSystemGroup : ComponentSystemGroup
+    public partial class Match3SimulationSystemGroup : ComponentSystemGroup
     {
         
     }

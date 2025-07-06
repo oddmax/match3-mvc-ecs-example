@@ -89,8 +89,8 @@ namespace Features.Views
         
         public void UpdatePosition()
         {
-            var translation = entityManager.GetComponentData<Translation>(entity);
-            gemTransform.localPosition = translation.Value;
+            var localTransform = entityManager.GetComponentData<LocalTransform>(entity);
+            gemTransform.localPosition = localTransform.Position;
         }
 
         public void Select()
